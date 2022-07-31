@@ -46,7 +46,7 @@ def handler(event, context):
     #現在時刻(日本時間)を取得
     today = datetime.now(timezone(timedelta(hours=9))).date() #YYYY-MM-dd型で取得
     tomorrow = today + timedelta(days=1)
-    testdate = date(2022,7,30)
+    #testdate = date(2022,7,30)
     
     with conn.cursor() as cur:
         
@@ -57,7 +57,7 @@ def handler(event, context):
             on "ShiftManagementApp_shift".user_id = "ShiftManagementApp_user".id \
             inner join line_bot \
             on "ShiftManagementApp_user".id = line_bot.user_id '\
-            +f"where date ='{testdate}';")
+            +f"where date ='{tomorrow}';")
         results_shifts = cur.fetchall()
         logger.info(results_shifts)
         tomorrow_shift_lists = []
