@@ -100,7 +100,7 @@ def handler(event, context):
             push_message = f"お疲れ様です。\n明日のシフトを通知します。\n{start_JST.strftime('%H:%M')}〜{end_JST.strftime('%H:%M')}\nよろしくお願いします。"
             try:
                 LINE_BOT_API.push_message(to, TextSendMessage(text=push_message))
-                logger.info(f"push_message:{push_message}")
+                logger.info(f"メッセージが送信されました。 to:{to} push_message:{push_message}")
             except LineBotApiError as e:
                 logger.error(e)
     """
