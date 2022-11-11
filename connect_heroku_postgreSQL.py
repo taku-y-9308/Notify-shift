@@ -50,7 +50,7 @@ def handler(event, context):
     
     with conn.cursor() as cur:
         
-    
+        #翌日シフトに入っており、かつLINE登録があるユーザーを取得する
         cur.execute('select "ShiftManagementApp_user".id,date,begin,finish,"ShiftManagementApp_user".username,"ShiftManagementApp_shift".user_id,line_user_id \
             from "ShiftManagementApp_shift" \
             inner join "ShiftManagementApp_user" \
