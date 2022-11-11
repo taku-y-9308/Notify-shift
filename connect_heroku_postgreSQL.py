@@ -50,7 +50,7 @@ def handler(event, context):
     
     with conn.cursor() as cur:
         
-        #シフトを収集
+    
         cur.execute('select "ShiftManagementApp_user".id,date,begin,finish,"ShiftManagementApp_user".username,"ShiftManagementApp_shift".user_id,line_user_id \
             from "ShiftManagementApp_shift" \
             inner join "ShiftManagementApp_user" \
@@ -74,11 +74,6 @@ def handler(event, context):
         logger.info(tomorrow_shift_lists)
         #logger.info(type(tomorrow_shift_lists[0]['date'])) #<class 'datetime.date'>
         #logger.info(type(tomorrow_shift_lists[0]['start'])) #<class 'datetime.datetime'>
-        
-        #LINE登録しているユーザーを取得
-        cur.execute('SELECT * FROM "ShiftManagementApp_line_user_id";')
-        result_notify_list = cur.fetchall()
-        logger.info(result_notify_list)
         
         reply_message = ""
     conn.commit()
