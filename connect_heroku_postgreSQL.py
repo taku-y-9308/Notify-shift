@@ -76,7 +76,7 @@ def handler(event, context):
         #logger.info(type(tomorrow_shift_lists[0]['start'])) #<class 'datetime.datetime'>
         
         #LINE登録しているユーザーを取得
-        cur.execute('select * from line_bot;')
+        cur.execute('SELECT * FROM "ShiftManagementApp_line_user_id";')
         result_notify_list = cur.fetchall()
         logger.info(result_notify_list)
         
